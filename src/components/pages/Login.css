@@ -1,0 +1,49 @@
+.login-container {
+    width: 800px;
+    margin: 50px auto;
+    margin-top: 200px;
+  }
+  
+  .login-title {
+    font-size: 48px;
+    font-weight: 700;
+    color: #3b82f6;
+  }
+  
+  .login-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Inputlar */
+  .login-input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .login-input:focus {
+    border-color: #3b82f6;
+    outline: none;
+  }
+  
+
+  .login-button {
+    width: 120px;
+    height: 40px;
+    background-color: #3b82f6;
+    color: white;
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.1s ease-in-out;
+  }
+  
+  .login-button:hover {
+    background-color: #2563eb; 
+  }
+  

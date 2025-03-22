@@ -1,0 +1,57 @@
+.posts-container {
+    width: 800px;
+    margin: 50px auto;
+  }
+  
+  .post-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    background-color: #fff;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .post-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+  }
+  
+  .post-content {
+    flex-grow: 1;
+  }
+  
+  .post-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .post-text {
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .post-meta {
+    font-size: 12px;
+    color: #888;
+  }
+  
+  .discussion-link {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: #17a2b8;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  .discussion-link:hover {
+    background-color: #138496;
+  }
+  
