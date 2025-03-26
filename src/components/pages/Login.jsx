@@ -6,10 +6,12 @@ import "./Login.css";
 function Login({ setUser }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   function handleSubmit(event) {
     event.preventDefault();
+    setLoading(true);
 
     axios
       .post("https://nt-devconnector.onrender.com/api/auth", { email, password })
@@ -21,9 +23,10 @@ function Login({ setUser }) {
       })
       .then((res) => {
         setUser(res.data);
-        navigate("/dashboard"); 
+        navigate("/dashboard");
       })
-      .catch((err) => console.error(err));
+      .catch((err) => console.error(err))
+      .finally(() => setLoading(false)); 
   }
 
   return (
@@ -36,6 +39,7 @@ function Login({ setUser }) {
           placeholder="Email address"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          autoFocus 
         />
         <input
           className="login-input"
@@ -44,8 +48,8 @@ function Login({ setUser }) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button className="login-button" type="submit">
-          Login
+        <button className="login-button" type="submit" disabled={loading}>
+          {loading ? "Loading..." : "Login"}
         </button>
       </form>
     </div>

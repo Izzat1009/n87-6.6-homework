@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { Routes, Route, Link, useNavigate } from "react-router-dom";
+import { Routes, Route, Link, Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Login from "./components/pages/Login";
 import Register from "./components/pages/Register";
 import Posts from "./components/pages/Posts";
 import Dashboard from "./components/pages/Dashboard";
+import NotFound from "./components/pages/NotFound";
 import "./App.css";
+
+const ProtectedRoute = ({ element }) => {
+  const token = localStorage.getItem("token");
+  return token ? element : <Navigate to="/login" />;
+};
 
 function App() {
   const [user, setUser] = useState(null);
@@ -42,16 +48,20 @@ function App() {
           <>
             <Link to="/dashboard">Dashboard</Link>
             <Link to="/posts">Posts</Link>
-            <button className="logout-btn" onClick={handleLogout}>Logout</button>
+            <button className="logout-btn" onClick={handleLogout}>
+              Logout
+            </button>
           </>
         )}
       </div>
 
       <Routes>
-        <Route element={<Login setUser={setUser} />} path="/login" />
-        <Route element={<Register />} path="/register" />
-        <Route element={<Posts />} path="/posts" />
-        <Route element={<Dashboard user={user} />} path="/dashboard" />
+        <Route path="/" element={<Navigate to="/register" />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login setUser={setUser} />} />
+        <Route path="/posts" element={<ProtectedRoute element={<Posts />} />} />
+        <Route path="/dashboard" element={<ProtectedRoute element={<Dashboard user={user} />} />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );

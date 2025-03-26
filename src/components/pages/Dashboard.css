@@ -1,5 +1,6 @@
 .dashboard-container {
     max-width: 800px;
+    height: 600px;
     margin: 40px auto;
     padding: 20px;
     background: #fff;
@@ -9,93 +10,16 @@
   }
   
   .dashboard-title {
-    font-size: 28px;
+    margin-top: 50px;
+    font-size: 38px;
+    margin-bottom: 150px;
     font-weight: bold;
     color: #333;
   }
   
   .welcome-text {
-    font-size: 18px;
+    font-size: 28px;
     color: #555;
     margin-bottom: 20px;
-  }
-  
-  .dashboard-actions {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 30px;
-  }
-  
-  .btn {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .edit-profile {
-    background: #007bff;
-    color: white;
-  }
-  
-  .edit-profile:hover {
-    background: #0056b3;
-  }
-  
-  .add-experience {
-    background: #28a745;
-    color: white;
-  }
-  
-  .add-experience:hover {
-    background: #1e7e34;
-  }
-  
-  .add-education {
-    background: #17a2b8;
-    color: white;
-  }
-  
-  .add-education:hover {
-    background: #117a8b;
-  }
-  
-  .credentials {
-    margin-top: 30px;
-  }
-  
-  .credentials h2 {
-    font-size: 22px;
-    color: #333;
-    margin-bottom: 10px;
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-  }
-  
-  th, td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: center;
-  }
-  
-  th {
-    background: #f4f4f4;
-  }
-  
-  .delete-account {
-    background: #dc3545;
-    color: white;
-    margin-top: 20px;
-  }
-  
-  .delete-account:hover {
-    background: #c82333;
   }
   

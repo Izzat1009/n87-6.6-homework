@@ -1,28 +1,27 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "./Register.css"; // ✅ Stilni import qildik
+import "./Register.css";
 
 function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   function handleSubmit(event) {
     event.preventDefault();
+    setLoading(true);
 
     axios
-      .post("https://nt-devconnector.onrender.com/api/users", {
-        name,
-        email,
-        password,
-      })
+      .post("https://nt-devconnector.onrender.com/api/users", { name, email, password })
       .then((res) => {
         localStorage.setItem("token", res.data.token);
-        navigate("/posts"); // ✅ Register tugagach, Posts sahifasiga o'tish
+        navigate("/posts");
       })
-      .catch((err) => console.error(err));
+      .catch((err) => console.error(err))
+      .finally(() => setLoading(false));
   }
 
   return (
@@ -42,6 +41,7 @@ function Register() {
           placeholder="Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          autoFocus
         />
         <input
           className="input-field"
@@ -57,8 +57,8 @@ function Register() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button className="submit-btn" type="submit">
-          Register
+        <button className="submit-btn" type="submit" disabled={loading}>
+          {loading ? "Loading..." : "Register"}
         </button>
       </form>
 
